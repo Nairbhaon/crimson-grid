@@ -109,6 +109,10 @@
 		to_chat(owner, span_purple("[victim] smells like kin[secondary_descriptor ? "...<br>...and of [secondary_descriptor]." : "."]"))
 	else
 		var/successes = SSroll.storyteller_roll_datum(owner, null, /datum/storyteller_roll/gift/scent_of_the_true_form, bonus = PRIMAL_URGE_PLACEHOLDER)
+		// CRIMSON EDIT ADD START - true_form oversuccess fix
+		if (successes > 4)
+			successes = 4
+		// CRIMSON EDIT ADD END - true_form oversuccess fix
 		switch(successes)
 			if(0)
 				to_chat(owner, span_purple("You can't exactly tell what [victim] smells like."))
